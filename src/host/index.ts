@@ -6,6 +6,7 @@ import { createCostSource } from './cost'
 import { watchAttachmentChannel } from './attachment'
 import { createToolAttribution } from './attribution'
 import { watchBalanceChannel } from './balance'
+import { watchQuotaChannel } from './quota'
 import { watchActivityBackfill } from './backfill'
 import { makeColdReadGate } from './coldRead'
 import { watchCommandPageChannel } from './commandPages'
@@ -47,6 +48,7 @@ export function apply(ctx: Context, config: Config): void {
   ctx.effect(() => () => { catalog.dispose() }, 'dsh-context: catalog cache')
   watchVersionChannel(ctx, catalog)
   watchBalanceChannel(ctx, harnessVersion ?? '0.0.0')
+  watchQuotaChannel(ctx)
   watchRecomChannel(ctx)
   watchSkillCatalog(ctx)
   watchFleetChannel(ctx, coldReads)

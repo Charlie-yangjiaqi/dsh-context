@@ -17,6 +17,7 @@ import type { SkillInfo } from '../../shared/types'
 import { dayKeyOf } from '../../shared/days'
 import type { ViewKit } from '../viewkit'
 import { makeBalanceCapsule } from './balanceCapsule'
+import { makeQuotaCapsule } from './quotaCapsule'
 import { ClearableInput } from './clearableInput'
 import { makeDateRange } from './dateRange'
 import { makeErrorBoundary } from './errorBoundary'
@@ -66,6 +67,7 @@ export function makeOverviewPanel(
   const Heatmap = makeHeatmap(kit)
   const OverviewCard = makeOverviewCard(kit)
   const BalanceCapsule = makeBalanceCapsule(ctx, kit)
+  const QuotaCapsule = makeQuotaCapsule(ctx, kit)
   const DateRange = makeDateRange(kit)
   const OverviewTokens = makeOverviewTokens(kit, Donut)
   const StatsTiming = makeStatsTiming(kit, Donut)
@@ -266,6 +268,7 @@ export function makeOverviewPanel(
               <button type="button" className="lc-ov-settings" title={t('plugin.settingsOpen')} onClick={() => { openPluginSettings(ctx) }}>
                 <IconSettings size={14} />{t('plugin.settings')}
               </button>
+              <QuotaCapsule />
               <BalanceCapsule />
               <UpdatePill />
               {backfill !== null && (fold !== 'idle' || unreadable > 0) && (

@@ -540,6 +540,25 @@ export interface PlatformBalance {
   balances: PlatformBalanceEntry[]
 }
 
+export interface QuotaWindow {
+  key: string
+  percent: number
+  resetsAt?: string
+  exceeded?: boolean
+}
+
+export interface QuotaProvider {
+  id: string
+  label: string
+  windows: QuotaWindow[]
+  remaining?: number
+  dashboard: string
+}
+
+export interface QuotaSnapshot {
+  providers: QuotaProvider[]
+}
+
 export interface BackfillSessionIssue {
   id: string
   reason: string

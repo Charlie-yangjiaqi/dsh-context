@@ -10,6 +10,8 @@ export const COMMANDS_ROUTE = 'api/dsh-context/commands'
 
 export const BALANCE_ROUTE = 'api/dsh-context/balance'
 
+export const QUOTA_ROUTE = 'api/dsh-context/quota'
+
 export const RECOM_ROUTE = 'api/dsh-context/recom'
 
 export const FLEET_ROUTE = 'api/dsh-context/fleet'
